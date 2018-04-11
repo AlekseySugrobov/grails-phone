@@ -1,7 +1,5 @@
 package grails.phone
 
-import java.time.LocalDate
-
 class Contact {
 
     String firstName
