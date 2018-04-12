@@ -19,6 +19,7 @@ class ContactController {
         respond contactInstance
     }
 
+
     def create() {
         respond new Contact(params)
     }

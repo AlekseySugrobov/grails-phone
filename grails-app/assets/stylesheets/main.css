@@ -11,12 +11,8 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
-	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-	background-image: linear-gradient(top, #aaa, #ddd);
+	background-color: #fff;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-	background-repeat: no-repeat;
 	height: 100%;
 	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
 	-webkit-box-sizing: border-box;
@@ -36,15 +32,28 @@ html * {
 	margin: 0;
 }
 
+.inline-form{
+	display: inline-block;
+}
+
 body {
 	background: #ffffff;
 	color: #333333;
-	margin: 0 auto;
+	margin: 10px auto;
+	padding: 5px;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	border: solid 1px lightgray;
+}
+
+.delete{
+	color: #48802c;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	text-decoration: underline;
 }
 
 #grailsLogo {
@@ -184,7 +193,7 @@ img {
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav a.home, .nav a.list, .nav a.create, .nav a.import {
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
@@ -200,6 +209,10 @@ img {
 
 .nav a.create {
 	background-image: url(../images/skin/database_add.png);
+}
+
+.nav a.import{
+	background-image: url(../images/skin/import.png);
 }
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
