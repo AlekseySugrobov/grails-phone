@@ -107,3 +107,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+.slcache
+.asscache
+grails-phone.iml
+
