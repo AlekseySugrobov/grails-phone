@@ -8,11 +8,14 @@ class ImportController {
 
     def index() { }
 
+    /**
+     * Чтение файла и сохранение полученных контактов
+     * @return
+     */
     def upload() {
         List<Contact> contactsForImport = importContactsService.readContacts(request.getFile('file'))
-        List<Contact> savedContacts = contactsForImport.findAll({it.id != null})
-        List<Contact> notSavedContacts = contactsForImport.findAll({it.id == null})
         return new ModelAndView("/import/index",
-                [savedContacts: savedContacts, notSavedContacts: notSavedContacts])
+                [savedContacts: contactsForImport.findAll({it.id != null}),
+                 notSavedContacts: contactsForImport.findAll({it.id == null})])
     }
 }

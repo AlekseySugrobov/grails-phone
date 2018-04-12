@@ -3,19 +3,24 @@ package grails.phone
 import grails.transaction.Transactional
 import org.mozilla.universalchardet.UniversalDetector
 
-import java.text.SimpleDateFormat
+import java.text.ParseException
 
 @Transactional
 class ImportContactsService {
 
-    def readContacts( def file ){
+    /**
+     * Импорт контактов
+     * @param file - файл
+     * @return список контактов
+     */
+    def readContacts(def file) {
         List<Contact> contacts = new ArrayList<>()
         def stream = file.inputStream
         def encoding = getEncoding(stream)
-        file.getInputStream().getText(encoding).splitEachLine(';'){
+        file.getInputStream().getText(encoding).splitEachLine(';') {
             fields ->
                 Contact contact = getContactFromFileRow(fields)
-                if (contact != null){
+                if (contact != null) {
                     contacts.add(contact)
                 } else {
                     log.error("cant parse fields: " + fields)
@@ -24,7 +29,12 @@ class ImportContactsService {
         contacts
     }
 
-    String getEncoding ( def inputStream ) {
+    /**
+     * Получение кодировки файла
+     * @param inputStream
+     * @return кодировка
+     */
+    String getEncoding(def inputStream) {
         byte[] buf = new byte[4096]
         UniversalDetector detector = new UniversalDetector(null)
         int nRead
@@ -38,7 +48,12 @@ class ImportContactsService {
         return encoding
     }
 
-    Contact getContactFromFileRow( List<String> fields){
+    /**
+     * Формирование контакта из строки
+     * @param fields - список элементов после разделения по ;
+     * @return контакт
+     */
+    Contact getContactFromFileRow(List<String> fields) {
         def newContact = null
         try {
             def FIO = fields[1]
@@ -55,8 +70,9 @@ class ImportContactsService {
                     phoneNumber: phoneNumber, mail: email, dateBirth: dateBirth)
             newContact.save()
 
-        } catch (NullPointerException ex){
+        } catch (NullPointerException | ParseException | ArrayIndexOutOfBoundsException ex) {
             ex.printStackTrace()
+            log.error("can't create Contact entity")
         }
         newContact
     }
