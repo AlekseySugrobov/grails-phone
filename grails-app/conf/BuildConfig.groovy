@@ -52,6 +52,7 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         runtime "org.postgresql:postgresql:9.4.1208.jre7"
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        compile "com.googlecode.juniversalchardet:juniversalchardet:1.0.3"
     }
 
     plugins {

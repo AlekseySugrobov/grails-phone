@@ -1,27 +1,25 @@
 import grails.phone.Contact
 
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class BootStrap {
 
     def init = { servletContext ->
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(1986, 0, 12)
+        def sdf = new SimpleDateFormat("dd.MM.yyyy")
         new Contact(firstName: 'Аркадий', middleName: 'Петрович',
-                lastName: 'Загорюев', dateBirth: calendar.getTime(),
-                phoneNumber: '9090222254').save()
-        calendar.set(1985, 04, 25)
+                lastName: 'Загорюев', dateBirth: sdf.parse("12.01.1986"),
+                phoneNumber: 79090222254).save()
         new Contact(firstName: 'Денис', middleName: 'Иванович',
-                lastName: 'Жарков', dateBirth: calendar.getTime(),
-                phoneNumber: 9128815527).save()
-        calendar.set(1987, 02, 12)
+                lastName: 'Жарков', dateBirth: sdf.parse("05.02.1985"),
+                phoneNumber: 79128815527).save()
         new Contact(firstName: 'Кирилл', middleName: 'Степанович',
-                lastName: 'Новоселов', dateBirth: calendar.getTime(),
-                phoneNumber: 9811925390).save()
-        calendar.set(1977, 07, 15)
+                lastName: 'Новоселов', dateBirth: sdf.parse("12.06.1956"),
+                phoneNumber: 79811925390).save()
         new Contact(firstName: 'Роман', middleName: 'Олегович',
-                lastName: 'Шульга', dateBirth: calendar.getTime(),
-                phoneNumber: 9811925390).save()
+                lastName: 'Шульга', dateBirth: sdf.parse("23.09.1986"),
+                phoneNumber: 79811925390).save()
     }
     def destroy = {
     }

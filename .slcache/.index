@@ -5539,3 +5539,16 @@ n:2057:com/sun/tools/javac/util/AbstractDiagnosticFormatter$2
 n:1318:com/sun/tools/javac/api/DiagnosticFormatter$PositionKind
 n:7701:sun/tools/native2ascii/Main
 n:1243:sun/tools/native2ascii/N2AFilter
+n:1716:org/codehaus/groovy/antlr/ASTRuntimeException
+n:1564:org/codehaus/groovy/antlr/ASTParserException
+n:961:org/codehaus/groovy/syntax/ParserException
+n:1582:org/codehaus/groovy/syntax/TokenException
+n:2509:BuildConfig$_run_closure1$_closure4
+n:1691:org/eclipse/aether/connector/basic/BasicRepositoryConnector$PeekTaskRunner
+n:882:org/eclipse/aether/spi/connector/transport/PeekTask
+n:934:org/apache/http/client/methods/HttpHead
+n:5174:org/mozilla/universalchardet/UniversalDetector
+n:1333:org/mozilla/universalchardet/UniversalDetector$InputState
+n:2391:org/mozilla/universalchardet/prober/CharsetProber
+n:181:org/mozilla/universalchardet/CharsetListener
+n:799:sl/org/objectweb/asm/tree/MultiANewArrayInsnNode

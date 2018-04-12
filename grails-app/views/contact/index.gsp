@@ -8,13 +8,11 @@
 </head>
 
 <body>
-<a href="#list-contact" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
-                                                              default="Skip to content&hellip;"/></a>
 
 <div class="nav" role="navigation">
     <ul>
         <li><g:link class="create" action="create">Создать контакт</g:link></li>
-        <li><g:link class="import" action="create">Импорт</g:link></li>
+        <li><a class="import" href="${createLink(uri:'/import')}">Импорт контактов</a></li>
     </ul>
 </div>
 
